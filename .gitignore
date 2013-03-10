@@ -1,1 +1,4 @@
 node_modules/
+docs/content*
+docs/toc*
+pages/docs*

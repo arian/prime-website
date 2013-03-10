@@ -1,0 +1,18 @@
+extends layouts/layout
+
+block page-head
+		link(href="./css/monokai.css", rel="stylesheet")
+
+block content
+
+	.docs
+
+		h1 Documentation {version}
+
+		.sidebar
+			div
+				include ../docs/toc-{version}.html
+
+		.content
+			div
+				include ../docs/content-{version}.html

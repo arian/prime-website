@@ -1,0 +1,6 @@
+[submodule "docs/prime-v0.1.0"]
+	path = docs/prime-v0.1.0
+	url = git://github.com/mootools/prime.git
+[submodule "docs/prime-v0.0.6"]
+	path = docs/prime-v0.0.6
+	url = git://github.com/mootools/prime.git
