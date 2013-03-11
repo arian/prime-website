@@ -51,7 +51,14 @@ async.auto({
 	versions: ['readdir', function(cb, res){
 		cb(null, res.readdir.map(function(file){
 			return file.slice(6);
-		}));
+		}).sort(semver.rcompare));
+	}],
+
+	makeVerionsIndex: ['versions', function(cb, res){
+		var jade = res.versions.map(function(version){
+			return "a(href='#{path}docs-" + version + ".html') " + version;
+		}).join('\n');
+		fs.writeFile(docsdir + '/versions.jade', jade, cb);
 	}],
 
 	makeJades: ['versions', 'readDocsJade', function(callback, res){
@@ -62,8 +69,8 @@ async.auto({
 		}, callback);
 	}],
 
-	copyLatest: ['makeJades', function(callback, res){
-		var latest = res.versions.sort(semver.rcompare)[0];
+	copyLatest: ['makeJades', 'versions', function(callback, res){
+		var latest = res.versions[0];
 		var pre = __dirname + '/../pages/docs';
 		fs.copy(pre + '-' + latest + '.jade', pre + '.jade', callback);
 	}]
