@@ -5,6 +5,7 @@ var async = require('async');
 var path = require('path');
 var rs = require('robotskirt');
 var hljs = require('highlight.js');
+var slug = require ('slug');
 var semver = require('semver');
 
 var docsdir = __dirname + "/../docs";
@@ -95,10 +96,17 @@ function compile(md){
 	};
 
 	var sidebar = '';
+	var links = {};
 	renderer.header = function(text, level){
 		if (level <= 2){
-			sidebar += '<a href="#' + text + '"' + (level == 1 ? ' class="top"' : '') + '>' + text + '</a>\n';
-			text = '<a href="#' + text + '" name="' + text + '">' + text + '</a>';
+
+			// handle duplicate headers
+			var link = slug(text);
+			if (links[link]) link += '-' + links[link]++;
+			else links[link] = 1;
+
+			sidebar += '<a href="#' + link + '"' + (level == 1 ? ' class="top"' : '') + '>' + text + '</a>\n';
+			text = '<a href="#' + link + '" name="' + link + '">' + text + '</a>';
 		}
 		return '<h' + level + '>' + text + '</h' + level + '>\n';
 	};
