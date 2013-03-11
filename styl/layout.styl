@@ -1,9 +1,31 @@
 @import "includes/home"
 @import "includes/docs"
+@import "includes/navigation"
+
+header-height = 3em
 
 body
 	background #efefef
 
 #container
-	margin 0 auto
+	margin header-height auto
 	max-width 1000px
+
+#header
+	background #999
+	height header-height
+	overflow hidden
+	position fixed
+	top 0
+	left 0
+	right 0
+
+	.logo
+		float left
+		width 200px
+
+		h1
+			margin 0
+
+	.nav
+		float left
