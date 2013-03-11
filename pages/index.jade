@@ -1,5 +1,63 @@
 extends layouts/page
 
 block page-content
-	h1 sup
 
+	.home
+
+		.about
+			h1 prime is an Object Oriented JavaScript library.
+			h2 It helps you with prototypal inheritance and contains generic utilities for every-day JavaScripting.
+
+			p
+				| By the #{empty}
+				a(href="http://mootools.net") MooTools
+				|  development team.
+
+			p No Native JavaScript Objects were harmed in the making of this library.
+
+
+		.download.grid
+
+			.span6: a.button(href="#{path}download") Download
+
+			.span6: a.button(href="https://github.com/mootools/prime") View on GitHub
+
+
+		.examples.grid
+
+			.span6
+				h3 Cats Primes!
+				p The function to create new primes.
+				div
+					:highlight(lang=js)
+						var prime = require("prime")
+
+						var Animal = prime({
+							say: function(){
+								return "!!"
+							}
+						})
+
+						var Cat = prime({
+							inherits: Animal,
+							say: function(){
+								return "meaow" + Cat.parent.say.call(this)
+							}
+						})
+			.span6
+				h3 Shell
+				p
+					| The base shell. As you require more shells, the base shell
+					| will be augmented. Requiring specific shells gives you
+					| access to generic methods as well.
+				div
+					:highlight(lang=js)
+						var array = require("prime/shell/array")
+
+						array.indexOf([1,2,3], 3) // 3
+
+						var _ = require("prime/shell")
+
+						_([1,2,3]).remove(1).each(function(number){
+							console.log(number)
+						})

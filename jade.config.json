@@ -1,6 +1,7 @@
 {
   "locals": {
     "pretty": true,
-    "path": "/"
+    "path": "/",
+    "empty": ""
   }
 }
