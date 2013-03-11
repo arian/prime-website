@@ -1,0 +1,17 @@
+extends layout
+
+block content
+
+	#header
+
+		.logo
+			h1 Prime
+
+		.nav
+			ul
+				li: a(href=path) Prime
+				li: a(href='#{path}docs.html') Docs
+
+	#container
+
+		block page-content
