@@ -1,16 +1,14 @@
-extends layouts/layout
+extends layouts/page
+
+block title
+	title Prime Documentation
 
 block page-head
 		link(href="./css/monokai.css", rel="stylesheet")
 
-block content
+block page-content
 
 	.docs
-
-		h1 Documentation {version}
-
-		.nav
-			include includes/navigation
 
 		.sidebar
 			div

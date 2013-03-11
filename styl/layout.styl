@@ -2,30 +2,58 @@
 @import "includes/docs"
 @import "includes/navigation"
 
-header-height = 3em
+width = 1000px
 
 body
 	background #efefef
+	font-family sans-serif
+	padding 0
+	margin 0
+
+.container
+	margin 0 auto
+	width width
+
 
 #container
-	margin header-height auto
-	max-width 1000px
+	overflow hidden
+
+	.sidebar,
+	.content
+		float left
+
+	.sidebar
+		width 200px
+
+		div
+			padding 1em
+
+			a
+				display block
+				padding 3px 50x
+
+				&.top
+					font-weight bold
+					padding 20px 5px
+
+	.content
+		width 800px
+
+		div
+			padding 0 30px 30px 30px
 
 #header
 	background #999
-	height header-height
+	height 3em
 	overflow hidden
-	position fixed
-	top 0
-	left 0
-	right 0
 
 	.logo
 		float left
-		width 200px
+		width 230px
 
 		h1
 			margin 0
 
 	.nav
 		float left
+

@@ -1,50 +1,11 @@
 
 .docs
-	sidebar-width = 20%
-	header-height = 3em
-
-	position absolute
-	top 0
-	bottom 0
-	left 0
-	right 0
-
-	> h1
-		font-size 2em
-		margin 0
-		padding 0
-
-	.nav
-		position absolute
-		right 0
-		top 0
-
-	.sidebar,
-	.content
-		position absolute
-		overflow auto
-		top header-height
-		bottom 0
 
 	.sidebar
-		left 0
-		width sidebar-width
-
-		div
-			padding 1em
-
-			a
-				display block
-				padding 3px 50x
-
-				&.top
-					font-weight bold
-					padding 20px 5px
+		position fixed
+		top 3em
+		bottom 0
+		overflow auto
 
 	.content
-		right 0
-		width (100 - sidebar-width)
-
-		div
-			padding 0 30px 30px 30px
-
+		margin-left 200px
